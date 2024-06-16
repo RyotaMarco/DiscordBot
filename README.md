@@ -67,8 +67,3 @@ Depois que o bot estiver online, você pode usar os seguintes comandos no seu se
 !stop: Para a música.
 
 !playlist{Link}: Baixa uma playlist e a inicializa. 
-
-
-Abra um Pull Request.
-Licença
-Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
