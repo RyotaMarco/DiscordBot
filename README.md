@@ -63,7 +63,9 @@ python bot.py
 Depois que o bot estiver online, você pode usar os seguintes comandos no seu servidor do Discord (ou conforme definidos no código do bot):
 
 !play{Link}: Inicializa uma música.
+
 !stop: Para a música.
+
 !playlist{Link}: Baixa uma playlist e a inicializa. 
 
 Abra um Pull Request.
