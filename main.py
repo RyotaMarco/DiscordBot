@@ -11,6 +11,7 @@ from collections import deque
 from concurrent.futures import ThreadPoolExecutor
 import logging
 
+
 # Configurar logging com mais detalhes
 logging.basicConfig(
     level=logging.DEBUG, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -20,6 +21,7 @@ logger = logging.getLogger("music_bot")
 # Carregar variáveis de ambiente do arquivo .env
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
+cookies_file = "cookies.txt"
 
 # Configurações do bot
 intents = discord.Intents.default()
@@ -34,6 +36,7 @@ thread_pool = ThreadPoolExecutor(max_workers=3)
 
 # Configurações específicas para YouTube
 yt_dl_options = {
+    "cookiefile": cookies_file,
     "format": "bestaudio/best",
     "noplaylist": False,
     "extract_flat": True,  # Alterado para True para melhor suporte a playlists
