@@ -7,19 +7,11 @@ from dotenv import load_dotenv
 import urllib.parse
 import urllib.request
 import re
-from collections import deque
-from concurrent.futures import ThreadPoolExecutor
-import logging
-
-# Configurar logging com mais detalhes
-logging.basicConfig(
-    level=logging.DEBUG, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
-logger = logging.getLogger("music_bot")
 
 # Carregar variáveis de ambiente do arquivo .env
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
+cookies_file = "cookies.txt"
 
 # Configurações do bot
 intents = discord.Intents.default()
@@ -29,28 +21,12 @@ client = commands.Bot(command_prefix=".", intents=intents)
 # Estruturas de dados
 queues = {}
 voice_clients = {}
-downloading_tasks = {}
-thread_pool = ThreadPoolExecutor(max_workers=3)
 
-# Configurações específicas para YouTube
-yt_dl_options = {
-    "format": "bestaudio/best",
-    "noplaylist": False,
-    "extract_flat": True,  # Alterado para True para melhor suporte a playlists
-    "ignoreerrors": True,
-    "nocheckcertificate": True,
-    "no_warnings": True,
-    "quiet": True,
-    "force_generic_extractor": False,
-    "postprocessors": [
-        {
-            "key": "FFmpegExtractAudio",
-            "preferredcodec": "opus",
-        }
-    ],
-    "youtube_include_dash_manifest": False,
-}
-
+# URLs e opções do YouTube
+youtube_base_url = "https://www.youtube.com/"
+youtube_results_url = youtube_base_url + "results?"
+youtube_watch_url = youtube_base_url + "watch?v="
+yt_dl_options = {"format": "bestaudio/best"}
 ytdl = yt_dlp.YoutubeDL(yt_dl_options)
 
 ffmpeg_options = {

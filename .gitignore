@@ -1,1 +1,4 @@
 .env
+cookies.txt
+keyAWS.pem
+AWS_KEY.ppk

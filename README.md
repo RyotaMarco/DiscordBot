@@ -1,74 +1,95 @@
-# DiscordBot
+# 🎶 Discord Music Bot
 
-[![License](https://img.shields.io/github/license/RyotaMarco/DiscordBot)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/RyotaMarco/DiscordBot)](https://github.com/RyotaMarco/DiscordBot/stargazers)
-[![Issues](https://img.shields.io/github/issues/RyotaMarco/DiscordBot)](https://github.com/RyotaMarco/DiscordBot/issues)
+Este é um bot de música para **Discord** desenvolvido em **Python**, que utiliza **yt-dlp** para reproduzir músicas diretamente do YouTube. O projeto foi hospedado na **AWS EC2** para garantir alta disponibilidade e inclui uma automação em **Windows** para facilitar a troca de cookies ao acessar playlists protegidas.  
+Este projeto foi criado 100% para **fins educacionais**, com o objetivo de aprender sobre integração com APIs, automação e hospedagem de aplicações.
 
-Um bot para Discord desenvolvido em Python, com funcionalidades diversas para ajudar a gerenciar servidores e oferecer ferramentas para interações divertidas e eficientes.
+---
 
-## Recursos
+## 🚀 Funcionalidades
 
-- **Comandos de administração:** Gerencie seu servidor com comandos de moderação eficazes.
-- **Comandos de diversão:** Várias interações para manter os membros engajados.
-- **Integrações personalizadas:** Fácil de expandir com novas funcionalidades.
+- 📋 **Toca playlists ou músicas individuais** do YouTube no Discord.
+- 🔎 **Suporte a buscas por palavras-chave** no YouTube.
+- ⏯️ **Comandos para controle de reprodução**, como *play*, *pause*, *resume*, *stop* e *skip*.
+- 📂 **Fila de reprodução** dinâmica.
+- 🔧 **Hospedagem na AWS EC2** para alta disponibilidade.
+- 🤖 **Automação em Windows** para atualização de cookies e acesso a conteúdos protegidos.
+- 🎛️ **Configuração de volume personalizada**.
 
-## Pré-requisitos
+---
 
-Antes de começar, certifique-se de ter o seguinte instalado em sua máquina:
+## 🛠️ Tecnologias Utilizadas
 
-- [Python](https://www.python.org/downloads/) (versão 3.8 ou superior)
-- [pip](https://pip.pypa.io/en/stable/installation/) (gerenciador de pacotes do Python)
-- [discord.py](https://discordpy.readthedocs.io/en/stable/) (biblioteca para interagir com a API do Discord)
+- **Python 3.8+**
+- **Discord.py**: Para a criação do bot no Discord.
+- **yt-dlp**: Para extração e streaming de áudio do YouTube.
+- **AWS EC2**: Para hospedar o bot e garantir sua disponibilidade 24/7.
+- **dotenv**: Para gerenciar variáveis de ambiente de forma segura.
+- **FFmpeg**: Para processamento de áudio.
+- **Windows Automation**: Scripts de automação para troca de cookies.
 
-## Instalação
+---
 
-Siga os passos abaixo para configurar e rodar o bot localmente:
+## 🔧 Configuração e Uso
 
-1. Clone o repositório:
+### Pré-requisitos
+
+1. **Python 3.8 ou superior** instalado.
+2. **FFmpeg** instalado e configurado no PATH do sistema.
+3. Conta na **AWS** com uma instância EC2 configurada (opcional para hospedagem).
+
+### Instalação Local
+
+1. Clone este repositório:
    ```bash
-   git clone https://github.com/RyotaMarco/DiscordBot.git
+   git clone https://github.com/seuusuario/seurepositorio.git
+   cd seurepositorio
+Crie um ambiente virtual e ative:
 
-2. Navegue até o diretório do projeto:
-```bash
-cd DiscordBot
-```
-3. Crie um ambiente virtual (opcional, mas recomendado):
- ```bash
+bash
 Copiar código
 python -m venv venv
-source venv/bin/activate  # Linux/macOS
+source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
-```
+Instale as dependências:
 
-4. instale as dependências:
- ```bash
+bash
 Copiar código
 pip install -r requirements.txt
- ```
+Crie um arquivo .env com o token do bot e outras variáveis de ambiente:
 
-5. Configure o arquivo .env com as credenciais do seu bot (crie este arquivo se ele não existir):
- ```makefile
+env
 Copiar código
-DISCORD_TOKEN=seu_token_do_discord
-PREFIX=!
- ```
+DISCORD_TOKEN=seu_token_do_bot
+Adicione um arquivo de cookies na raiz do projeto (por exemplo, cookies.txt).
 
-6. Inicie o bot:
- ```bash
+Execute o bot:
+
+bash
 Copiar código
-python bot.py
- ```
+python main.py
+📋 Comandos Disponíveis
+🎵 Música
+.play <URL ou termo de busca>: Reproduz uma música ou playlist.
+.pause: Pausa a música atual.
+.resume: Retoma a música pausada.
+.skip: Pula para a próxima música na fila.
+.stop: Para a música e limpa a fila.
+.queue: Mostra as músicas na fila.
+🔍 Status
+.ping: Verifica se o bot está online.
+☁️ Hospedagem na AWS EC2
+O bot está hospedado em uma instância EC2, garantindo disponibilidade contínua. Foi configurado para iniciar automaticamente junto ao sistema operacional da instância.
 
-## Uso
-Depois que o bot estiver online, você pode usar os seguintes comandos no seu servidor do Discord (ou conforme definidos no código do bot):
+🤖 Automação no Windows
+Para acessar playlists protegidas ou privadas no YouTube, desenvolvi uma automação que facilita a troca de cookies de autenticação. Essa automação garante que o bot funcione sem interrupções em conteúdos protegidos.
 
-!play{Link}: Inicializa uma música.
+📚 Aprendizados
+Este projeto foi uma excelente oportunidade para aprender e aplicar conceitos como:
 
-!stop: Para a música.
+Integração com APIs (Discord e YouTube).
+Automação de tarefas no Windows.
+Configuração e gerenciamento de servidores na AWS EC2.
+Manipulação de dados com yt-dlp e processamento de áudio com FFmpeg.
+⚠️ Avisos
+Este projeto foi desenvolvido exclusivamente para fins educacionais. Não deve ser utilizado para violar os Termos de Serviço de plataformas como YouTube ou Discord.
 
-!playlist{Link}: Baixa uma playlist e a inicializa. 
-
-
-Abra um Pull Request.
-Licença
-Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
