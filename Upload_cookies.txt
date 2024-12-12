@@ -1,0 +1,24 @@
+@echo off
+:: Configurações
+set PEM_FILE=""C:\Users\lokpe\OneDrive\Documentos\City Pop Bot\Puan010688!.pem""
+set LOCAL_COOKIES_PATH=""C:\Users\lokpe\OneDrive\Documentos\City Pop Bot\cookies.txt""
+set REMOTE_USER=ubuntu
+set REMOTE_IP=<ec2-18-117-252-59.us-east-2.compute.amazonaws.com>
+set REMOTE_DEST="~/cookies.txt"
+
+:: Transferir o arquivo cookies.txt para o servidor EC2
+scp -i %PEM_FILE% %LOCAL_COOKIES_PATH% %REMOTE_USER%@%REMOTE_IP%:%REMOTE_DEST%
+
+if %ERRORLEVEL%==0 (
+    echo [SUCESSO] Cookies atualizados no servidor!
+) else (
+    echo [ERRO] Falha ao transferir cookies. Verifique as configurações.
+)
+pause
+
+
+
+scp C:\Users\lokpe\OneDrive\Documentos\CityPopBot\cookies.txt Bot/cookies.txt ubuntu@<ec2-18-117-252-59.us-east-2.compute.amazonaws.com>:/home/ubuntu/CityPopBot
+
+
+ssh -i D:\Games\Puan010688!.pem ubuntu@ec2-18-117-252-59.us-east-2.compute.amazonaws.com
