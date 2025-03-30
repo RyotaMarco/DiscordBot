@@ -1,0 +1,32 @@
+# Arquivos do ambiente virtual
+venv/
+env/
+ENV/
+.venv
+
+# Arquivos de ambiente
+.env
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+logs/
+*.log
+
+# Arquivos temporários
+*.tmp
+
+# Cookies e arquivos de configuração locais
+cookies.txt
+Upload_cookies.txt
+
+# Arquivos de chave privada
+*.pem
+
+# Arquivos IDE
+.idea/
+.vscode/
+*.sublime-*
